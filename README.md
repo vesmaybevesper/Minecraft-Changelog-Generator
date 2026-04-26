@@ -1,3 +1,6 @@
+Below is the original readme, following it will install that version, I'm working on a way to install this one :)
+
+
 # Minecraft-Changelog-Generator
 Tool for autocreating modpack changelog  
 Compatible only with
