@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+s#! /usr/bin/env node
 
 const yargs = require('yargs')
 const StreamZip = require('node-stream-zip')
@@ -76,8 +76,8 @@ const Main = async () => {
     return ids.valid ? ids.version : ''
   }
 
-  const oldProjectVersions = oldFiles.map(getVersion)
-  const newProjectVersions = newFiles.map(getVersion)
+  const oldProjectVersions = oldFiles.map(getVersion).filter(Boolean)
+  const newProjectVersions = newFiles.map(getVersion).filter(Boolean)
 
   const oldProjects = await getProjects(oldProjectIds)
   const newProjects = await getProjects(newProjectIds)
@@ -101,7 +101,7 @@ const Main = async () => {
       const oldVersion = versions.old[0]
       const newVersion = versions.new[0]
 
-      if (newVersion && oldVersion.id !== newVersion.id
+      if (newVersion && oldVersion.id && oldVersion.id !== newVersion.id
       ) {
         changed.push({
           project,
